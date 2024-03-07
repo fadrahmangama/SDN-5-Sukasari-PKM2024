@@ -24,7 +24,7 @@
             <a class="nav-link {{ $active === 'about' ? 'active' : '' }} mx-lg-2" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-lg-2" href="#">Posts</a>
+            <a class="nav-link {{ $active === 'Posts' ? 'active' : '' }} mx-lg-2" href="/Posts">Posts</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-lg-2" href="#">Contact</a>
