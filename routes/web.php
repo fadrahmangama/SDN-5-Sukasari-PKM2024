@@ -36,4 +36,4 @@ Route::get('/login', function(){
 });
 
 Route::get('/Posts',[PostController::class,'index']);
-
+Route::get('/Posts/{post:slug}',[PostController::class,'show']);

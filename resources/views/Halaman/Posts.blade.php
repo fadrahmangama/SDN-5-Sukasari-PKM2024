@@ -8,6 +8,9 @@ text-white flex-column">
         </div>
     </section>
     <section class='container'>
-        Ini halaman Blog
+        @foreach ($posts as $post)
+            <h2><a style="text-decoration: none" href="/Posts/{{ $post->slug }}">{{ $post->title }}</a></h2>
+            <h3>{{ $post->excerpt }}</h3>
+        @endforeach
     </section>
 @endsection
