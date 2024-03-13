@@ -7,9 +7,9 @@ text-white flex-column">
             <h2>SDN 5 Sukasari Tangerang</h2>
         </div>
     </section>
-    <section class='container'>
-        @foreach ($categories as $category)
-            <h2><a style="text-decoration: none" href="/categories/{{ $category->slug }}">{{ $category->name }}</a></h2>
-        @endforeach
+    <section class='container'>        
+            @foreach ($categories as $category)
+                <h2><a style="text-decoration: none" href="/categories/{{ $category->slug }}">{{ $category->name }}</a></h2>
+            @endforeach
     </section>
 @endsection

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Models\Category;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,18 +39,26 @@ Route::get('/login', function(){
 Route::get('/Posts',[PostController::class,'index']);
 Route::get('/Posts/{post:slug}',[PostController::class,'show']);
 Route::get('/categories/{category:slug}', function(Category $category){
-    return view('Halaman.Category',[
-        'title' => $category -> name,
-        'active' => 'Posts',
+    return view('Halaman.Posts',[
+        'title' => "Post by category: $category->name",
+        'active' => 'Category',
         'posts' => $category-> post,
         'category' => $category->name
     ]);
 });
 
 Route::get('/categories', function(){
-    return view('Halaman.Categories',[
+    return view('Halaman.Posts',[
         'title' => 'Category post',
-        'active' => 'Posts',
-        'categories' => Category::all()
+        'active' => 'Category',
+        'categories' => Category::with(['post','user'])->get() //egaer-loading
+    ]);
+});
+
+Route::get('authors/{user:username}',function(User $user){
+    return view('Halaman.Posts',[
+        'title' => "Post by Author : $user->name",
+        'posts' => $user->post->load('category','user'), //lazy-eager loading
+        'active' => 'Authors'
     ]);
 });
