@@ -38,22 +38,8 @@ Route::get('/login', function(){
 
 Route::get('/Posts',[PostController::class,'index']);
 Route::get('/Posts/{post:slug}',[PostController::class,'show']);
-Route::get('/categories/{category:slug}', function(Category $category){
-    return view('Halaman.Posts',[
-        'title' => "Post by category: $category->name",
-        'active' => 'Category',
-        'posts' => $category-> post,
-        'category' => $category->name
-    ]);
-});
-
-Route::get('/categories', function(){
-    return view('Halaman.Posts',[
-        'title' => 'Category post',
-        'active' => 'Category',
-        'categories' => Category::with(['post','user'])->get() //egaer-loading
-    ]);
-});
+Route::get('/categories/{category:slug}', [CategoryController::class,'category']);
+Route::get('/categories', [CategoryController::class,'categories']);
 
 Route::get('authors/{user:username}',function(User $user){
     return view('Halaman.Posts',[
