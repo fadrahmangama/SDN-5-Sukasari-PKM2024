@@ -26,5 +26,5 @@ class CategoryController extends Controller
             'posts' => $category-> post,
             'category' => $category->name
         ]);
-    }
+    } 
 }

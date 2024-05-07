@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 use App\Models\Category;
 use App\Models\User;
 /*
@@ -38,7 +39,7 @@ Route::get('/login', function(){
 
 Route::get('/Posts',[PostController::class,'index']);
 Route::get('/Posts/{post:slug}',[PostController::class,'show']);
-Route::get('/categories/{category:slug}', [CategoryController::class,'category']);
+Route::get('/categories/{category:slug}',[CategoryController::class,'category']);
 Route::get('/categories', [CategoryController::class,'categories']);
 
 Route::get('authors/{user:username}',function(User $user){
