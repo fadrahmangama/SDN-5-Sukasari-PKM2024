@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->string('excerpt');
-            $table->string('body');
+            $table->longText('body', 255);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

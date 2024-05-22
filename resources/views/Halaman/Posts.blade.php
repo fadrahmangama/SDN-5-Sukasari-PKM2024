@@ -1,5 +1,19 @@
 @extends('layouts.main')
 @section('section')
+<section style="position: static; margin-top:120px; margin-bottom:20px;">
+    <h1 class="text-center">All Post</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6 ">
+            <form action="/Posts" method="GET">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search..." 
+                    name="search" value="{{ request('search') }}">
+                    <button class="btn btn-danger" type="submit" id="">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
     @if ($posts->count())
         <section class='container '>
             <div class="card">
