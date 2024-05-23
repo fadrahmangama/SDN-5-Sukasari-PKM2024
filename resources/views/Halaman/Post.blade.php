@@ -9,7 +9,8 @@
                 <div class="col-md-8 ">
                     <article>
                         <h1 class="text-center">{{ $post->title }}</h1>
-                        <p>By <a style="text-decoration:none;" href="/authors/{{ $post->user->username }}">{{ $post->user->name }}</a> in <a class="text-decoration-none" href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
+                        <p>By <a style="text-decoration:none;" href="/authors/{{ $post->user->username }}">{{ $post->user->name }}</a> 
+                            in <a class="text-decoration-none" href="/Posts?category={{ $post->category->slug }}">{{ $post->category->name }}</a></p>
                         {!! $post->body !!}
                     </article>
                 </div>
