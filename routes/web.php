@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LoginController;
 use App\Models\Category;
 use App\Models\User;
 /*
@@ -30,13 +31,8 @@ Route::get('/about',function(){
     ]);
 });
 
-Route::get('/login', function(){
-    return view('layouts.login', [
-        'title' => 'login',
-        
-    ]);
-});
-
+Route::get('/signUp', [LoginController::class,'signUp']);
+Route::get('/login', [LoginController::class,'index']);
 Route::get('/Posts',[PostController::class,'index']);
 Route::get('/Posts/{post:slug}',[PostController::class,'show']);
 Route::get('/categories/{category:slug}',[CategoryController::class,'category']);
