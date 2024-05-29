@@ -31,8 +31,11 @@ Route::get('/about',function(){
     ]);
 });
 
+Route::post('/signUp', [LoginController::class,'store']);
 Route::get('/signUp', [LoginController::class,'signUp']);
-Route::get('/login', [LoginController::class,'index']);
+Route::post('/signIn', [LoginController::class,'index']);
+Route::get('/signIn', [LoginController::class,'index']);
+
 Route::get('/Posts',[PostController::class,'index']);
 Route::get('/Posts/{post:slug}',[PostController::class,'show']);
 Route::get('/categories/{category:slug}',[CategoryController::class,'category']);

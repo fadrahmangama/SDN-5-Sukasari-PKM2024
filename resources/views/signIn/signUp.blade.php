@@ -18,22 +18,47 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" action="/signUp" method="post">
       <img src="{{ asset('Logo.png') }}" alt="" width="85" height="100" style="padding-bottom: 15px;">
-      <label for="inputName" class="sr-only">Name</label>
-      <input type="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
-      <label for="inputUserName" class="sr-only">Username</label>
-      <input type="inputUserName" id="inputUserName" class="form-control" placeholder="Username" required autofocus>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
+      <h3>Registration Form</h3>
+      @csrf
+      <div class="form-floating">
+        <input type="text" name="name" class="form-control rounded-top @error('name') is-invalid @enderror" placeholder="name" id="name" value="{{ old('name') }}" required>
+        <label for="name">Name</label>
+        @error('name')
+            <div class="invalid-feedback text-start" >
+                {{ $message }}
+            </div>
+        @enderror
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+      <div class="form-floating">
+        <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" placeholder="Username" id="username" value="{{ old('username') }}" required>
+        <label for="username">Username</label>
+        @error('username')
+            <div class="invalid-feedback text-start">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+    <div class="form-floating">
+      <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email address" id="email" value="{{ old('email') }}" required>
+      <label for="email">Email address</label>
+      @error('email')
+          <div class="invalid-feedback text-start">
+              {{ $message }}
+          </div>
+      @enderror
+  </div>
+  <div class="form-floating">
+      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" required>
+      <label for="password">Password</label>
+      @error('password')
+          <div class="invalid-feedback text-start mb-1 mt-n5">
+              {{ $message }}
+          </div>
+      @enderror
+  </div>
+      <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign Up</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2023 - 2024</p>
     </form>
   </body>
