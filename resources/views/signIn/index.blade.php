@@ -21,10 +21,14 @@
     <body class="text-center">
         <form class="form-signin" method="post" action="/signIn" >
           
+          @if (session()->has('LoginError'))  <!-- LoginError diambil dari nama key dalam controller -->
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <Strong class="text-center">{{ session('LoginError') }}</Strong>
+          </div>
+          @endif
           @if (session()->has('success'))  <!-- Success diambil dari nama key dalam controller -->
           <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> Please continue to sign in
-        </div>
+            <strong>Success!</strong> {{ session('success') }}
           </div>
           @endif
           @csrf
@@ -32,7 +36,7 @@
             <h3>Sign In Page</h3>
             <div class="form-floating">
                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                    placeholder="Email address" id="email" required>
+                    placeholder="Email address" id="email" value="{{ old('email') }}" required autofocus>
                 <label for="email">Email address</label>
                 @error('email')
                     <div class="invalid-feedback text-start">

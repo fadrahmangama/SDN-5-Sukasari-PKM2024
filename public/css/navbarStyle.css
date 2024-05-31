@@ -7,6 +7,8 @@
     text-decoration: none;
     transition: 0.3s background-color;
     font-weight: 490;
+    margin-left: 400px ;
+    margin-right: -400px;
 }
 
 .login-button:hover{
@@ -89,4 +91,9 @@
         visibility: visible;
     }
 }
+
+.auth-item {
+    margin-right: -450px;
+    margin-left: 150px;
+  }
 

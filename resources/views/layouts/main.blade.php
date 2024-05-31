@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ asset('css/homeStyle.css'); }}">
         <link rel="stylesheet" href="{{ asset('css/aboutUsStyle.css'); }}">
         <script src="https://kit.fontawesome.com/8beaccb2ed.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
